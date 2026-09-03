@@ -42,11 +42,16 @@ public class RotaPirenopolisSolver {
 
         else {
             System.out.print("Shortest Path: ");
-            for (var node : path) {
-                System.out.printf("[%d] %s -> ", node.value.id(), node.value.name());
+
+            var i = path.iterator();
+
+            while (i.hasNext()){
+                var node = i.next();
+                System.out.printf("[%d] %s", node.value.id(), node.value.name());
+                if (i.hasNext()) System.out.print(" -> ");
             }
-            System.out.printf("[%d] %s\n", to.value.id(), to.value.name());
-            System.out.println("Jumps: " + path.size());
+
+            System.out.println("\nJumps: " + (path.size()-1));
         }
     }
 
@@ -62,7 +67,10 @@ public class RotaPirenopolisSolver {
 
             System.out.printf("Current Node: [%d] %s\n", currentNode.value.id(), currentNode.value.name());
 
-            if (currentNode.equals(to)) return shortestPathByNode.get(to);
+            if (currentNode.equals(to)) {
+                shortestPathByNode.get(to).add(currentNode);
+                return shortestPathByNode.get(to);
+            }
 
             for (var connection: currentNode.getConnections()){
                 if (!shortestPathByNode.containsKey(connection)) {
