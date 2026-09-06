@@ -6,9 +6,9 @@ public class RotaPirenopolisSolver {
         var goianiaNode = new Node<>(new City(1, "Goiania"));
         var trindadeNode = new Node<>(new City(2, "Trindade"));
         var senCanedoNode = new Node<>(new City(3, "Sen. Canedo"));
-        var neropolisNode = new Node<>(new City(4, "Nerópolis"));
-        var anapolisNode = new Node<>(new City(5, "Anápolis"));
-        var pirenopolisNode = new Node<>(new City(6, "Pirenópolis"));
+        var neropolisNode = new Node<>(new City(4, "Neropolis"));
+        var anapolisNode = new Node<>(new City(5, "Anapolis"));
+        var pirenopolisNode = new Node<>(new City(6, "Pirenopolis"));
 
         apGoianiaNode.connect(goianiaNode);
         apGoianiaNode.connect(neropolisNode);
@@ -101,11 +101,6 @@ public class RotaPirenopolisSolver {
 
         public Node(T value) {
             this.value = value;
-        }
-
-        public void connectBidirectional(Node<T> node){
-            this.connections.add(node);
-            node.connections.add(this);
         }
 
         public void connect(Node<T> node){
