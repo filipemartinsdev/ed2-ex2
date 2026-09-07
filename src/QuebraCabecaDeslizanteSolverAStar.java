@@ -1,6 +1,6 @@
 import java.util.*;
 
-class SlidingPuzzleSolver {
+class QuebraCabecaDeslizanteSolverAStar {
 
     private static final int SIZE = 3; // Tamanho do tabuleiro (3x3 para o quebra-cabeça 8)
 
